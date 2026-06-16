@@ -1,0 +1,319 @@
+/* FUENTE Y AJUSTES GENERALES */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d1117;
+    color: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fondo decorativo de malla */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, transparent 20%, #05070a 90%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Canvas del Confeti de Fondo */
+#confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* MENÚ */
+nav {
+    background: rgba(22, 27, 34, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #10a37f;
+}
+
+/* PORTADA HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(270deg, #0d1117, #0b4e3e, #0d1117);
+    background-size: 400% 400%;
+    animation: fondo 12s infinite ease-in-out;
+    border-radius: 24px;
+    margin-top: 30px;
+    border: 1px solid rgba(16, 163, 127, 0.2);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(16, 163, 127, 0.15);
+    border: 1px solid #10a37f;
+    color: #3cf0c8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1.1;
+    margin: 0 0 15px 0;
+}
+
+.title-line { display: block; }
+.title-line.accent { color: #10a37f; text-shadow: 0 0 20px rgba(16,163,127,0.4); }
+
+.subtitle {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    font-size: 18px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* BOTONES */
+.btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.btn-primary { background: #10a37f; color: white; }
+.btn-secondary { background: #9b5cff; color: white; }
+.btn-accent { background: #ff3c6e; color: white; }
+
+.btn:hover { transform: scale(1.05); }
+.btn-primary:hover { box-shadow: 0 0 20px #10a37f; }
+.btn-secondary:hover { box-shadow: 0 0 20px #9b5cff; }
+.btn-accent:hover { box-shadow: 0 0 20px #ff3c6e; }
+
+/* SECCIONES */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Tu estilo base actual (con unos pequeños ajustes para el 3D) */
+section img {
+    width: 320px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 10px;
+    border: 1px solid #4a2283; /* Añadimos tu borde morado base */
+    cursor: pointer;
+    
+    /* Cambiamos a 0.7s para que el giro de 380° se disfrute mejor y añadimos fluidez */
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.5s ease, 
+                border-color 0.5s ease;
+}
+
+/* ¡El efecto ÉPICO al pasar el mouse! */
+section img:hover {
+    /* Gira los 380 grados en el eje vertical y se inclina sutilmente en el horizontal */
+    transform: rotateY(380deg) rotateX(5deg) scale(1.05);
+    
+    /* Cambia el borde a un morado brillante */
+    border-color: #a155ff;
+    
+    /* Crea la sombra luminosa estilo neón detrás de la foto */
+    box-shadow: 0px 15px 30px rgba(138, 43, 226, 0.5), 
+                0px 0px 15px rgba(161, 85, 255, 0.3);
+}
+
+
+section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    margin-bottom: 45px;
+}
+
+/* REJILLAS */
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.effect-card {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 30px 20px;
+    border-radius: 20px;
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.effect-card:hover {
+    transform: translateY(-8px);
+    border-color: #10a37f;
+    box-shadow: 0 10px 30px rgba(16, 163, 127, 0.15);
+}
+
+.card-icon { font-size: 40px; margin-bottom: 15px; }
+
+.seccion-texto p {
+    font-size: 19px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #cbd5e1;
+}
+
+/* 1. Preparamos el contenedor para el efecto 3D */
+.Enfoque-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  perspective: 1000px; /* Crucial: da la sensación de profundidad 3D */
+}
+
+/* 2. Estilo base de la tarjeta con transiciones suaves */
+.ficha-enfoque {
+  border: 1px solid #4a2283;
+  border-radius: 12px; /* Un poco más redondeado se ve más moderno */
+  padding: 25px;
+  background-color: #0b0c10;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  
+  /* Animación de retorno suave cuando quitas el mouse */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s ease, 
+              border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+/* 3. El efecto ÉPICO al pasar el mouse (Hover) */
+.ficha-enfoque:hover {
+  /* Gira 360 grados en el eje vertical (Y) y se acerca un poco al usuario */
+  transform: rotateY(360deg) scale(1.03); 
+  
+  /* Hace que tu borde morado brille intensamente */
+  border-color: #8a2be2; 
+  box-shadow: 0px 0px 20px rgba(138, 43, 226, 0.6); 
+}
+
+/* Opcional: Un pequeño efecto de escala para los títulos dentro de la ficha */
+.ficha-enfoque h3 {
+  transition: color 0.3s ease;
+}
+.ficha-enfoque:hover h3 {
+  color: #a155ff; /* El título se ilumina en un morado más claro al girar */
+}
+
+/* TABLA */
+.tabla-responsive { overflow-x: auto; border-radius: 12px; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; background: #161b22; }
+th { background: #10a37f; padding: 18px; font-family: 'Space Mono', monospace; }
+td { border-bottom: 1px solid #21262d; padding: 18px; text-align: center; }
+
+/* Esto obligará al contenedor a ordenar los elementos en fila horizontal */
+#video .video-contenedor-doble {
+    display: flex !important;
+    flex-direction: row !important; /* Fuerza la fila horizontal */
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    margin-top: 30px !important;
+}
+
+/* Esto le quita el comportamiento de bloque individual a tus videos */
+#video .video-contenedor-doble iframe {
+    display: inline-block !important;
+    margin: 0 !important; /* Elimina el centrado vertical que los empuja hacia abajo */
+    max-width: 45% !important; /* Hace que ocupen menos de la mitad de la pantalla para que quepan juntos */
+    min-width: 320px !important; /* Evita que se hagan diminutos en pantallas chicas */
+}
+
+/* 3. Efecto visual interactivo al pasar el mouse */
+.video-contenedor-doble iframe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(76, 201, 240, 0.4);
+}
+
+.cta-final { padding: 40px 0; text-align: center; }
+
+/* FOOTER */
+footer {
+    background: #090d13;
+    border-top: 1px solid #21262d;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #8b949e;
+    margin-top: 60px;
+}
+footer a { color: #10a37f; text-decoration: none; display: inline-block; margin-top: 10px; }
+
+@keyframes fondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero, section, footer { animation: aparecer 1s ease-out; }
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 15px; text-align: center; }
+    .title { font-size: 40px; }
+    section h2 { font-size: 26px; }
+}

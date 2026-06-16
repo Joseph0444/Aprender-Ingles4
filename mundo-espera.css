@@ -1,0 +1,484 @@
+/* ==========================================================================
+   CONFIGURACIÓN GENERAL E IMAGEN DE FONDO FIJA
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+    
+    /* IMAGEN DE FONDO FIJA (Asegúrate de poner una imagen abstracta o espacial de alta resolución) */
+    background-image: url('https://unsplash.com');
+    background-attachment: fixed; /* Mantiene la imagen estática mientras haces scroll */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Oscurecimiento general del fondo para que los textos resalten */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 7, 18, 0.7); /* Capa oscura y misteriosa */
+    z-index: -1;
+}
+
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN GLASSMORPHISM
+   ========================================================================== */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    
+    /* Efecto de vidrio esmerilado */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #00f2fe; /* Tono cian futurista */
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #4facfe;
+    text-shadow: 0 0 10px #4facfe;
+}
+
+/* ==========================================================================
+   HERO / PORTADA CON TÍTULO TRANSPARENTE
+   ========================================================================== */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-contenido {
+    max-width: 950px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* EFECTO TEXTO TRANSPARENTE RECORTADO CON DEGRADADO */
+.titulo-transparente {
+    font-size: 80px;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe, #0000ff, #ff007f);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Hace que el relleno sea invisible */
+    animation: animacionTextoDegradado 8s ease infinite;
+}
+
+@keyframes animacionTextoDegradado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #e2e8f0;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   BOTONES FUTURISTAS
+   ========================================================================== */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-principal, .btn-secundario {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-principal {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: #0a0712;
+    border: none;
+}
+
+.btn-principal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secundario:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.btn-pulsante {
+    animation: pulsoNeon 2s infinite alternate;
+}
+
+@keyframes pulsoNeon {
+    0% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.4); }
+    100% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.8); }
+}
+
+/* ==========================================================================
+   SECCIONES Y TÍTULOS RESALTADOS
+   ========================================================================== */
+section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ffffff, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   TIPO 1: FICHAS CON GIRO PERMANENTE E INFINITO EN 3D
+   ========================================================================== */
+.grid-fichas-infinitas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    perspective: 1500px; /* Crea profundidad 3D */
+}
+
+.tarjeta-infinita {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    
+    /* Animación continua de rotación en 360 grados */
+    animation: rotacion3DInfinita 16s linear infinite;
+    transform-style: preserve-3d;
+    transition: all 0.4s ease;
+}
+
+/* Al tocar la tarjeta infinita se acelera y genera resplandor */
+.tarjeta-infinita:hover {
+    animation-play-state: paused; /* Se detiene con estilo */
+    transform: scale(1.05) rotateY(0deg) translateY(-15px); /* Se endereza frente al usuario */
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #00f2fe;
+    box-shadow: 0 0 35px rgba(0, 242, 254, 0.5);
+}
+
+@keyframes rotacion3DInfinita {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* ==========================================================================
+   TIPO 2: FICHAS CON GIRO DINÁMICO AL TOCAR (HOVER REVELACIÓN)
+   ========================================================================== */
+.grid-fichas-hover {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    perspective: 1200px;
+}
+
+.tarjeta-hover {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+}
+
+/* Ejecuta una rotación acrobática extrema solo cuando el mouse se posiciona encima */
+.tarjeta-hover:hover {
+    transform: rotateX(10deg) rotateY(180deg) scale(1.05); /* Da media vuelta completa */
+    border-color: #ff007f;
+    box-shadow: 0 0 35px rgba(ff, 0, 127, 0.5);
+}
+
+/* Evita que el texto de adentro se voltee al revés durante el giro */
+.tarjeta-hover * {
+    backface-visibility: hidden;
+}
+
+/* Elementos comunes de las fichas */
+.icono {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.tarjeta-infinita h3, .tarjeta-hover h3 {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+}
+
+.tarjeta-infinita p, .tarjeta-hover p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* ==========================================================================
+   GALERÍA UNIFORME DE ALTO IMPACTO
+   ========================================================================== */
+.contenedor-galeria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.contenedor-galeria img {
+    width: 340px;
+    height: 220px;
+    object-fit: cover; /* Recorta la imagen limpiamente sin deformar */
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contenedor-galeria img:hover {
+    transform: scale(1.08) translateY(-10px);
+    border-color: #00f2fe;
+    box-shadow: 0 15px 30px rgba(0, 242, 254, 0.4);
+}
+
+/* =====================
+   VIDEO CONTENEDOR DOBLE
+===================== */
+
+/* Esto obligará al contenedor a ordenar los elementos en fila horizontal */
+#video .video-contenedor-doble {
+    display: flex !important;
+    flex-direction: row !important; /* Fuerza la fila horizontal */
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    margin-top: 30px !important;
+}
+
+/* Esto le quita el comportamiento de bloque individual a tus videos */
+#video .video-contenedor-doble iframe {
+    display: inline-block !important;
+    margin: 0 !important; /* Elimina el centrado vertical que los empuja hacia abajo */
+    max-width: 45% !important; /* Hace que ocupen menos de la mitad de la pantalla para que quepan juntos */
+    min-width: 320px !important; /* Evita que se hagan diminutos en pantallas chicas */
+}
+
+/* ==========================================================================
+   CTA SECCIÓN Y PIE DE PÁGINA
+   ========================================================================== */
+.cta-futurista {
+    text-align: center;
+    background: rgba(0, 242, 254, 0.03);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 30px;
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+    margin-top: 40px;
+}
+
+.cta-futurista h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.cta-futurista p {
+    font-size: 18px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer{
+
+    background:#120f0d;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-top:2px solid #f59e0b;
+
+}
+
+footer a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:10px;
+
+}
+
+footer a:hover{
+
+    color:#f59e0b;
+
+}
+
+/* =====================
+   ANIMACIÓN DE FONDO HERO
+===================== */
+
+@keyframes fondoClaude{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* =====================
+   APARICIÓN
+===================== */
+
+.hero,
+section,
+footer{
+
+    animation:aparecer 1.5s;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =====================
+   EFECTO BRILLO
+===================== */
+
+.logo-claude{
+
+    color:#fbbf24;
+
+    text-shadow:
+    0 0 10px #f59e0b,
+    0 0 20px #f59e0b,
+    0 0 30px #f59e0b;
+
+}
+
+/* =====================
+   SCROLL SUAVE
+===================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
